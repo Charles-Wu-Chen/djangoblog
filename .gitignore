@@ -1,0 +1,8 @@
+*.pyc
+__pycache__
+blog_env
+db.sqlite3
+/static
+.DS_Store
+blog_project/.idea
+.idea
