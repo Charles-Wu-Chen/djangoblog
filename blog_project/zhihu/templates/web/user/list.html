@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% block title %}My Blog{% endblock %}
+{% block content %}
+<h1>ZhiHu User List</h1>
+{% for zuser in users %}
+<h2>
+    <a href="{{ post.get_absolute_url }}">
+        {{ zuser.userName }}
+    </a>
+</h2>
+<p class="date">
+    userLinkId {{ zuser.userLinkId }}
+</p>
+{% endfor %}
+{% include "pagination.html" with page=users %}
+{% endblock %}

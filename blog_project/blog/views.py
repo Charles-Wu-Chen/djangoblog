@@ -7,6 +7,7 @@ from django.core.mail import send_mail
 from django.db.models import Count
 from taggit.models import Tag
 
+import pdb; pdb.set_trace()
 def post_list(request, category=None, tag_slug=None):
     tag = None
     object_list = Post.published.all()
@@ -40,11 +41,14 @@ class PostListView(ListView):
 
 
 def post_detail(request, year, month, day, post):
+    #post = get_object_or_404(Post, slug=post,
+    #                               status='published',
+    #                               publish__year=year,
+    #                               publish__month=month,
+    #                               publish__day=day)
     post = get_object_or_404(Post, slug=post,
-                                   status='published',
-                                   publish__year=year,
-                                   publish__month=month,
-                                   publish__day=day)
+                                   status='published')
+
     # List of active comments for this post
     comments = post.comments.filter(active=True)
 

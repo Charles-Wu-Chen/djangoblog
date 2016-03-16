@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Search a user{% endblock %}
+
+{% block content %}
+
+        <h1>User Search</h1>
+        <form action="{% url "zhihu:user_search" %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="submit" value="Search">
+        </form>
+        <p>
+    {% if user != None%}
+        <h1>Search Result</h1>
+        <p>"{{ user.userLinkId }}" ::: "{{ user.userName }}"</p>
+    {% endif %}
+{% endblock %}
